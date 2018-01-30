@@ -1,0 +1,109 @@
+"msg": {
+        "changed": false,
+        "msg": "All items completed",
+        "results": [
+            {
+                "_ansible_ignore_errors": null,
+                "_ansible_item_result": true,
+                "_ansible_no_log": false,
+                "_ansible_parsed": true,
+                "changed": false,
+                "failed": false,
+                "instance_ids": null,
+                "instances": [],
+                "invocation": {
+                    "module_args": {
+                        "assign_public_ip": true,
+                        "aws_access_key": null,
+                        "aws_secret_key": null,
+                        "count": 1,
+                        "count_tag": "{'node': 'NAVY-SD-Student-1'}",
+                        "ebs_optimized": false,
+                        "ec2_url": null,
+                        "exact_count": 1,
+                        "group": [
+                            "insecure_all"
+                        ],
+                        "group_id": null,
+                        "id": null,
+                        "image": "ami-0a792a70",
+                        "instance_ids": null,
+                        "instance_initiated_shutdown_behavior": null,
+                        "instance_profile_name": null,
+                        "instance_tags": {
+                            "node": "NAVY-SD-Student-1"
+                        },
+                        "instance_type": "t2.small",
+                        "kernel": null,
+                        "key_name": "ansible",
+                        "monitoring": false,
+                        "network_interfaces": null,
+                        "placement_group": null,
+                        "private_ip": null,
+                        "profile": null,
+                        "ramdisk": null,
+                        "region": "us-east-1",
+                        "security_token": null,
+                        "source_dest_check": true,
+                        "spot_launch_group": null,
+                        "spot_price": null,
+                        "spot_type": "one-time",
+                        "spot_wait_timeout": "600",
+                        "state": "present",
+                        "tenancy": "default",
+                        "termination_protection": null,
+                        "user_data": null,
+                        "validate_certs": true,
+                        "volumes": null,
+                        "vpc_subnet_id": "subnet-67f67d03",
+                        "wait": false,
+                        "wait_timeout": "300",
+                        "zone": null
+                    }
+                },
+                "item": "1",
+                "tagged_instances": [
+                    {
+                        "ami_launch_index": "0",
+                        "architecture": "x86_64",
+                        "block_device_mapping": {
+                            "/dev/sda1": {
+                                "delete_on_termination": true,
+                                "status": "attached",
+                                "volume_id": "vol-0de851f3502e77188"
+                            }
+                        },
+                        "dns_name": "ec2-35-170-197-210.compute-1.amazonaws.com",
+                        "ebs_optimized": false,
+                        "groups": {
+                            "sg-e5250997": "insecure_all"
+                        },
+                        "hypervisor": "xen",
+                        "id": "i-0bb664e41039f81fd",
+                        "image_id": "ami-0a792a70",
+                        "instance_type": "t2.small",
+                        "kernel": null,
+                        "key_name": "ansible",
+                        "launch_time": "2018-01-30T01:43:50.000Z",
+                        "placement": "us-east-1a",
+                        "private_dns_name": "ip-10-0-0-221.ec2.internal",
+                        "private_ip": "10.0.0.221",
+                        "public_dns_name": "ec2-35-170-197-210.compute-1.amazonaws.com",
+                        "public_ip": "35.170.197.210",
+                        "ramdisk": null,
+                        "region": "us-east-1",
+                        "root_device_name": "/dev/sda1",
+                        "root_device_type": "ebs",
+                        "state": "running",
+                        "state_code": 16,
+                        "tags": {
+                            "node": "NAVY-SD-Student-1"
+                        },
+                        "tenancy": "default",
+                        "virtualization_type": "hvm"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,43 @@
+--- #
+- hosts: localhost
+  connection: localhost
+  become: no
+  gather_facts: no
+
+  tasks:
+    - name: Create Windows nodes
+      ec2:
+        key_name: "{{ ec2_key_name }}"
+        instance_type: "{{ ec2_instance_type }}"
+        group: "{{ ec2_security_group }}"
+        exact_count: "{{ win_instance_count }}"
+        image: "{{ ec2_node_image_id }}"
+        vpc_subnet_id: "{{ ec2_vpc_subnet_id }}"
+        assign_public_ip: "{{ public_ip }}"
+        region: "{{ ec2_region }}"
+        count_tag:
+          node: "{{ ec2_name_prefix }}-Student-{{ item }}"
+        instance_tags:
+          node: "{{ ec2_name_prefix }}-Student-{{ item }}"
+      with_sequence: count={{ win_instance_count }}
+      register: ec2
+
+    - name:
+      debug:
+        msg: "{{ ec2 }}"
+
+    - name: wait 90 seconds
+      pause:
+        seconds: 2
+
+    - name: debug tagged instances
+      debug:
+        msg: "{{ ec2.results[0]|json_query('tagged_instances[*].id') }}"
+
+    - name: delete tagged instances
+      ec2:
+        ec2_region: "{{ ec2_region }}"
+        state: absent
+        instance_ids: "{{ ec2.results[0]|json_query('tagged_instances[*].id') }}"
+      tags:
+        - remove
